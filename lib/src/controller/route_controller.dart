@@ -4,6 +4,11 @@ abstract class SequentialController<T> extends RouteController<T> {
   RouteController<T>? _next;
 
   @override
+  FutureOr<RouteResponse<T>> handle(RouteRequest<T> request) {
+    return _next?.handle(request) ?? RouteResponse.notFound("No sequential route provided");
+  }
+
+  @override
   Linkable<T> link(RouteController<T> Function() factory) => _next = factory();
 
   @override

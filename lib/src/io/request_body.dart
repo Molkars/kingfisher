@@ -17,4 +17,7 @@ class JsonRequestBody<T> extends RequestBody<T> {
 
   @override
   Map<String, String> stringify() => json.map((k, v) => MapEntry(k, v.toString()));
+
+  @override
+  String toString() => 'JsonRequestBody{json: $json}';
 }
