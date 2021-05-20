@@ -99,6 +99,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  http:
+    dependency: "direct dev"
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.3"
   http_multi_server:
     dependency: transitive
     description:
@@ -280,7 +287,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.17.3"
+    version: "1.17.4"
   test_api:
     dependency: transitive
     description:
@@ -294,7 +301,7 @@ packages:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.23"
+    version: "0.3.24"
   typed_data:
     dependency: transitive
     description:

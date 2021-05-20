@@ -36,10 +36,6 @@ void main() {
         ],
       );
       final actualWRegex = RouteUri.parse("/some/{where([a-z]+)}");
-
-      print(expectedWRegex.toString(format: RouteUriFormat.debug));
-      print(actualWRegex.toString(format: RouteUriFormat.debug));
-
       expect(actualWRegex, equals(expectedWRegex));
     });
 

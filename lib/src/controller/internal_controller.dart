@@ -4,7 +4,7 @@ class _InternalController<T> extends SequentialController<T> {
   final List<RouteUri> uris;
 
   _InternalController({
-    required this.uris,
+    this.uris = const [],
   });
 
   @override
