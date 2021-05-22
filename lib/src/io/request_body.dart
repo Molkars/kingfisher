@@ -1,14 +1,14 @@
 part of kingfisher;
 
 @immutable
-abstract class RequestBody<T> {
+abstract class RequestBody {
   const RequestBody();
 
   Map<String, String> stringify();
 }
 
 @immutable
-class JsonRequestBody<T> extends RequestBody<T> {
+class JsonRequestBody extends RequestBody {
   final Map<String, dynamic> json;
 
   const JsonRequestBody(this.json);

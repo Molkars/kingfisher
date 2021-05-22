@@ -10,8 +10,8 @@ class RouteRequest<T> extends IRouteRequest<T> {
     required String location,
     this.pathVariables = const {},
     this.queryParameters = const {},
-    RequestHeaders<T> headers = const BasicRequestHeaders.empty(),
-    RequestBody<T> body = const JsonRequestBody.empty(),
+    RequestHeaders headers = const BasicRequestHeaders.empty(),
+    RequestBody body = const JsonRequestBody.empty(),
   }) : super(
           headers: headers,
           body: body,
@@ -26,8 +26,8 @@ class RouteRequest<T> extends IRouteRequest<T> {
 
 class IRouteRequest<T> extends RouteResponse<T> {
   final String location;
-  final RequestHeaders<T> headers;
-  final RequestBody<T> body;
+  final RequestHeaders headers;
+  final RequestBody body;
 
   const IRouteRequest({
     required this.location,
@@ -47,8 +47,8 @@ class RedirectResponse<T> extends IRouteRequest<T> {
   const RedirectResponse({
     required this.previousLocation,
     required String newLocation,
-    RequestHeaders<T> headers = const BasicRequestHeaders.empty(),
-    RequestBody<T> body = const JsonRequestBody.empty(),
+    RequestHeaders headers = const BasicRequestHeaders.empty(),
+    RequestBody body = const JsonRequestBody.empty(),
   }) : super(
           headers: headers,
           body: body,

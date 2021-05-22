@@ -1,6 +1,6 @@
 part of kingfisher;
 
-abstract class RequestHeaders<T> {
+abstract class RequestHeaders {
   Map<String, String> get raw;
 
   const RequestHeaders();
@@ -11,7 +11,7 @@ abstract class RequestHeaders<T> {
   String toString() => 'RequestHeaders{headers: $raw}';
 }
 
-class BasicRequestHeaders<T> extends RequestHeaders<T> {
+class BasicRequestHeaders extends RequestHeaders {
   final Map<String, String> raw;
 
   const BasicRequestHeaders(this.raw);

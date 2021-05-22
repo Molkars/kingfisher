@@ -15,8 +15,8 @@ class Kingfisher<T> {
 
   FutureOr<RouteResponse<T>> get(
     String route, {
-    RequestHeaders<T> headers = const BasicRequestHeaders.empty(),
-    RequestBody<T> body = const JsonRequestBody.empty(),
+    RequestHeaders headers = const BasicRequestHeaders.empty(),
+    RequestBody body = const JsonRequestBody.empty(),
   }) async {
     RouteResponse<T> response = IRouteRequest(location: route, body: body, headers: headers);
 
@@ -37,8 +37,8 @@ class Kingfisher<T> {
 
   _RouterIntent<T> _handle({
     required String route,
-    required RequestBody<T> body,
-    required RequestHeaders<T> headers,
+    required RequestBody body,
+    required RequestHeaders headers,
   }) {
     final raw = Uri.parse(route);
     _RouterIntent<T>? intent;

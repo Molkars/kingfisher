@@ -6,14 +6,14 @@ abstract class RouteResponse<T> {
   const factory RouteResponse.redirect({
     required String previousLocation,
     required String newLocation,
-    RequestHeaders<T> headers,
-    RequestBody<T> body,
+    RequestHeaders headers,
+    RequestBody body,
   }) = RedirectResponse<T>;
 
   const factory RouteResponse.request({
     required String location,
-    RequestHeaders<T> headers,
-    RequestBody<T> body,
+    RequestHeaders headers,
+    RequestBody body,
   }) = IRouteRequest<T>;
 
   const factory RouteResponse.notFound([String message]) = NotFoundResponse<T>;
