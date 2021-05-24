@@ -1,7 +1,13 @@
 part of kingfisher;
 
 abstract class RouteResponse<T> {
-  const RouteResponse();
+  final ResponseType responseType;
+
+  const RouteResponse(this.responseType);
+
+  int getCode([Map<ResponseType, int> responseCodes = defaultResponseCodes]) {
+    return responseCodes[responseType] ?? -1;
+  }
 
   const factory RouteResponse.redirect({
     required String previousLocation,
@@ -11,6 +17,7 @@ abstract class RouteResponse<T> {
   }) = RedirectResponse<T>;
 
   const factory RouteResponse.request({
+    required ResponseType responseType,
     required String location,
     RequestHeaders headers,
     RequestBody body,
@@ -19,6 +26,8 @@ abstract class RouteResponse<T> {
   const factory RouteResponse.notFound([String message]) = NotFoundResponse<T>;
 
   const factory RouteResponse.success(T data) = SuccessResponse<T>;
+
+  const factory RouteResponse.ok(T data) = OkResponse<T>;
 
   const factory RouteResponse.unauthorized([String message]) = UnauthorizedResponse<T>;
 
@@ -32,7 +41,7 @@ abstract class RouteResponse<T> {
 class NotFoundResponse<T> extends RouteResponse<T> {
   final String message;
 
-  const NotFoundResponse([this.message = ""]);
+  const NotFoundResponse([this.message = ""]) : super(ResponseType.notFound);
 
   @override
   String toString() => 'NotFoundResponse{message: $message}';
@@ -45,10 +54,12 @@ class NotFoundResponse<T> extends RouteResponse<T> {
   int get hashCode => message.hashCode;
 }
 
+typedef OkResponse<T> = SuccessResponse<T>;
+
 class SuccessResponse<T> extends RouteResponse<T> {
   final T data;
 
-  const SuccessResponse(this.data);
+  const SuccessResponse(this.data) : super(ResponseType.ok);
 
   @override
   String toString() => 'SuccessResponse{data: $data}';
@@ -64,7 +75,7 @@ class SuccessResponse<T> extends RouteResponse<T> {
 class UnauthorizedResponse<T> extends RouteResponse<T> {
   final String? message;
 
-  const UnauthorizedResponse([this.message]);
+  const UnauthorizedResponse([this.message]) : super(ResponseType.unauthorized);
 
   @override
   String toString() => 'UnauthorizedResponse{message: $message}';

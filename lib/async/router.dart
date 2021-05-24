@@ -18,7 +18,7 @@ class Kingfisher<T> {
     RequestHeaders headers = const BasicRequestHeaders.empty(),
     RequestBody body = const JsonRequestBody.empty(),
   }) async {
-    RouteResponse<T> response = IRouteRequest(location: route, body: body, headers: headers);
+    RouteResponse<T> response = IRouteRequest(location: route, body: body, headers: headers, responseType: ResponseType.continue_);
 
     do {
       final request = response as IRouteRequest<T>;

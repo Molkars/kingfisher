@@ -45,8 +45,7 @@ class RouteUri {
         }
         if (i + 1 < units.length) {
           if (units[i + 1] != _pathDelimiter) {
-            throw FormatException(
-                "Segment not ended after variable segment was closed for route '$route' at position $i");
+            throw FormatException("Segment not ended after variable segment was closed for route '$route' at position $i");
           } else {
             // Skip the '/' character that comes next
             i++;

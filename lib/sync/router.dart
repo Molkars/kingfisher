@@ -13,11 +13,12 @@ class Kingfisher<T> {
 
   Linkable<T> notFound() => _notFoundController = _InternalController<T>();
 
-  RouteResponse<T> get(String route, {
+  RouteResponse<T> get(
+    String route, {
     RequestHeaders headers = const BasicRequestHeaders.empty(),
     RequestBody body = const JsonRequestBody.empty(),
   }) {
-    RouteResponse<T> response = IRouteRequest(location: route, body: body, headers: headers);
+    RouteResponse<T> response = IRouteRequest(location: route, body: body, headers: headers, responseType: ResponseType.continue_);
 
     do {
       final request = response as IRouteRequest<T>;

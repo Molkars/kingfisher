@@ -13,6 +13,7 @@ class RouteRequest<T> extends IRouteRequest<T> {
     RequestHeaders headers = const BasicRequestHeaders.empty(),
     RequestBody body = const JsonRequestBody.empty(),
   }) : super(
+          responseType: ResponseType.continue_,
           headers: headers,
           body: body,
           location: location,
@@ -30,10 +31,11 @@ class IRouteRequest<T> extends RouteResponse<T> {
   final RequestBody body;
 
   const IRouteRequest({
+    required ResponseType responseType,
     required this.location,
     this.headers = const BasicRequestHeaders.empty(),
     this.body = const JsonRequestBody.empty(),
-  });
+  }) : super(responseType);
 
   @override
   String toString() {
@@ -50,6 +52,7 @@ class RedirectResponse<T> extends IRouteRequest<T> {
     RequestHeaders headers = const BasicRequestHeaders.empty(),
     RequestBody body = const JsonRequestBody.empty(),
   }) : super(
+          responseType: ResponseType.seeOther,
           headers: headers,
           body: body,
           location: newLocation,

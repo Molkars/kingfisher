@@ -37,8 +37,7 @@ List<RouteUri> _degenerifyRoute(final String route) {
   for (final int code in codeUnits) {
     if (code == _openExpression) {
       if (insideExpression) {
-        throw ArgumentError(
-            "Router compilation failed. Route pattern '$routePattern' cannot use expression that contains '(' or ')'");
+        throw ArgumentError("Router compilation failed. Route pattern '$routePattern' cannot use expression that contains '(' or ')'");
       }
       buffer.writeCharCode(code);
       insideExpression = true;
@@ -47,8 +46,7 @@ List<RouteUri> _degenerifyRoute(final String route) {
 
     if (code == _closeExpression) {
       if (!insideExpression) {
-        throw ArgumentError(
-            "Router compilation failed. Route pattern '$routePattern' cannot use expression that contains '(' or ')'");
+        throw ArgumentError("Router compilation failed. Route pattern '$routePattern' cannot use expression that contains '(' or ')'");
       }
       buffer.writeCharCode(code);
       insideExpression = false;
