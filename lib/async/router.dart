@@ -13,7 +13,7 @@ class Kingfisher<T> {
 
   Linkable<T> notFound() => _notFoundController = _InternalController<T>();
 
-  FutureOr<RouteResponse<T>> get(
+  Future<RouteResponse<T>> get(
     String route, {
     RequestHeaders headers = const BasicRequestHeaders.empty(),
     RequestBody body = const JsonRequestBody.empty(),
@@ -98,11 +98,11 @@ class Kingfisher<T> {
     return intent ?? _RouterIntent();
   }
 
-  FutureOr<RouteResponse<T>> _notFound(RouteRequest<T> request) {
+  Future<RouteResponse<T>> _notFound(RouteRequest<T> request) async {
     if (_notFoundController == null) {
       throw Exception('Unable to handle case ${request.location}');
     }
-    return _notFoundController!.handle(request);
+    return await _notFoundController!.handle(request);
   }
 }
 

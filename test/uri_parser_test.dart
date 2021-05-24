@@ -1,4 +1,4 @@
-import 'package:kingfisher/kingfisher.dart';
+import 'package:kingfisher/async.dart';
 import 'package:test/test.dart';
 
 void main() {

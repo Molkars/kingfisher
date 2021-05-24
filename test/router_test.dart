@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:kingfisher/kingfisher.dart';
+import 'package:kingfisher/async.dart';
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 

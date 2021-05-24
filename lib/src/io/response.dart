@@ -23,8 +23,7 @@ abstract class RouteResponse<T> {
   const factory RouteResponse.unauthorized([String message]) = UnauthorizedResponse<T>;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is RouteResponse && runtimeType == other.runtimeType;
+  bool operator ==(Object other) => identical(this, other) || other is RouteResponse && runtimeType == other.runtimeType;
 
   @override
   int get hashCode => 0;
@@ -40,8 +39,7 @@ class NotFoundResponse<T> extends RouteResponse<T> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is NotFoundResponse && runtimeType == other.runtimeType && message == other.message;
+      identical(this, other) || other is NotFoundResponse && runtimeType == other.runtimeType && message == other.message;
 
   @override
   int get hashCode => message.hashCode;
@@ -73,8 +71,7 @@ class UnauthorizedResponse<T> extends RouteResponse<T> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UnauthorizedResponse && runtimeType == other.runtimeType && message == other.message;
+      identical(this, other) || other is UnauthorizedResponse && runtimeType == other.runtimeType && message == other.message;
 
   @override
   int get hashCode => message.hashCode;

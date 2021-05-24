@@ -8,7 +8,7 @@ class _InternalController<T> extends SequentialController<T> {
   });
 
   @override
-  FutureOr<RouteResponse<T>> handle(RouteRequest<T> request) {
+  RouteResponse<T> handle(RouteRequest<T> request) {
     return _next?.handle(request) ?? request;
   }
 }

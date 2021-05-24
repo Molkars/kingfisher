@@ -6,7 +6,5 @@ class _FunctionController<T> extends RouteController<T> {
   _FunctionController(this.handler);
 
   @override
-  FutureOr<RouteResponse<T>> handle(RouteRequest<T> request) async {
-    return handler(request);
-  }
+  FutureOr<RouteResponse<T>> handle(RouteRequest<T> request) => handler(request);
 }
